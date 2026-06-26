@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Book Store</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#f4f4f4;
+scroll-behavior:smooth;
+}
+
+/* NAVBAR */
+
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#222;
+padding:15px 30px;
+box-sizing:border-box;
+z-index:1000;
+}
+
+nav h2{
+color:white;
+margin:0;
+}
+
+nav div{
+margin-right:30px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+font-size:18px;
+}
+
+/* HERO */
+
+.hero{
+    height:100vh;
+    background-image:url("https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=1920&q=80");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+}
+.hero h1{
+font-size:55px;
+}
+
+.hero p{
+font-size:25px;
+}
+
+/* BOOKS */
+
+section{
+padding:90px 20px;
+}
+
+.book-container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.book{
+background:white;
+padding:15px;
+border-radius:10px;
+box-shadow:0 0 10px gray;
+text-align:center;
+}
+
+.book img{
+width:100%;
+height:260px;
+object-fit:cover;
+border-radius:10px;
+}
+
+.price{
+font-size:20px;
+font-weight:bold;
+}
+
+button{
+background:green;
+color:white;
+border:none;
+padding:10px 15px;
+cursor:pointer;
+border-radius:5px;
+}
+
+button:hover{
+background:darkgreen;
+}
+
+/* FOOTER */
+
+footer{
+background:#111;
+text-align:center;
+padding:20px;
+margin-top:40px;
+}
+
+footer button{
+background:#ff9800;
+padding:12px 25px;
+font-size:16px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+color:white;
+}
+
+footer button:hover{
+background:#e68a00;
+}
+
+</style>
+
+</head>
+
+<body id="top">
+
+<nav>
+
+<h2>📚 Book Store</h2>
+
+<div>
+
+<a href="#top">Home</a>
+
+<a href="#books">Books</a>
+
+<a href="cart.html">Cart 🛒</a>
+
+</div>
+
+</nav>
+
+<div class="hero">
+
+
+
+</div>
+
+<section id="books">
+
+<h1 style="text-align:center;">Popular Books</h1>
+
+<div class="book-container">
+
+<div class="book">
+<img src="https://m.media-amazon.com/images/I/81F90H7hnML.jpg">
+<h3>Atomic Habits</h3>
+<p class="price">₹499</p>
+<button onclick="addToCart('Atomic Habits',499)">Add to Cart</button>
+</div>
+
+<div class="book">
+    <img src="https://m.media-amazon.com/images/I/81t2CVWEsUL.jpg">
+    <h3>The Secret</h3>
+    <p class="price">₹299</p>
+    <button onclick="addToCart('The Secret',299)">Add to Cart</button>
+  </div>
+
+
+<div class="book">
+<img src="https://m.media-amazon.com/images/I/81bsw6fnUiL.jpg">
+<h3>Rich Dad Poor Dad</h3>
+<p class="price">₹399</p>
+<button onclick="addToCart('Rich Dad Poor Dad',399)">Add to Cart</button>
+</div>
+
+<div class="book">
+<img src="https://m.media-amazon.com/images/I/81af+MCATTL.jpg">
+<h3>Ikigai</h3>
+<p class="price">₹320</p>
+<button onclick="addToCart('Ikigai',320)">Add to Cart</button>
+</div>
+
+<div class="book">
+<img src="https://m.media-amazon.com/images/I/71aFt4+OTOL.jpg">
+<h3>The Alchemist</h3>
+<p class="price">₹250</p>
+<button onclick="addToCart('The Alchemist',250)">Add to Cart</button>
+</div>
+
+<div class="book">
+    <img src="https://m.media-amazon.com/images/I/71QKQ9mwV7L.jpg">
+    <h3>A Man Called Ove</h3>
+    <p class="price">₹350</p>
+    <button onclick="addToCart('A Man Called Ove',350)">Add to Cart</button>
+  </div>
+
+
+<div class="book">
+<img src="https://m.media-amazon.com/images/I/81WcnNQ-TBL.jpg">
+<h3>Wings of Fire</h3>
+<p class="price">₹300</p>
+<button onclick="addToCart('Wings of Fire',300)">Add to Cart</button>
+</div>
+
+<div class="book">
+<img src="https://images-na.ssl-images-amazon.com/images/P/1455586692.01.L.jpg">
+<h3>Deep Work</h3>
+<p class="price">₹450</p>
+<button onclick="addToCart('Deep Work',450)">Add to Cart</button>
+</div>
+
+<div class="book">
+<img src="https://m.media-amazon.com/images/I/71UypkUjStL.jpg">
+<h3>Think and Grow Rich</h3>
+<p class="price">₹260</p>
+<button onclick="addToCart('Think and Grow Rich',260)">Add to Cart</button>
+</div>
+
+<div class="book">
+<img src="https://m.media-amazon.com/images/I/71g2ednj0JL.jpg">
+<h3>The Psychology of Money</h3>
+<p class="price">₹420</p>
+<button onclick="addToCart('The Psychology of Money',420)">Add to Cart</button>
+</div>
+
+<div class="book">
+<img src="https://covers.openlibrary.org/b/isbn/9780099448822-L.jpg">
+<h3>Norwegian Wood</h3>
+<p class="price">₹280</p>
+<button onclick="addToCart('Norwegian Wood',280)">Add to Cart</button>
+</div>
+
+<div class="book">
+<img src="https://m.media-amazon.com/images/I/81t2CVWEsUL.jpg">
+<h3>Harry Potter</h3>
+<p class="price">₹550</p>
+<button onclick="addToCart('Harry Potter',550)">Add to Cart</button>
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<button onclick="window.scrollTo({top:0,behavior:'smooth'})">
+
+⬆ Back to Top
+
+</button>
+
+</footer>
+
+<script>
+
+function addToCart(name,price){
+
+let cart=JSON.parse(localStorage.getItem("cart"))||[];
+
+cart.push({
+
+name:name,
+
+price:price
+
+});
+
+localStorage.setItem("cart",JSON.stringify(cart));
+
+alert(name+" added to cart!");
+
+}
+
+</script>
+
+</body>
+
+</html>

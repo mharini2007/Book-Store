@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Shopping Cart</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#f4f4f4;
+}
+
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#222;
+padding:15px 30px;
+box-sizing:border-box;
+}
+
+nav h2{
+color:white;
+margin:0;
+}
+
+nav div{
+margin-right:30px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+font-size:18px;
+}
+
+.container{
+margin-top:90px;
+padding:20px;
+}
+
+h1{
+text-align:center;
+}
+
+.cart-item{
+background:white;
+width:350px;
+margin:20px auto;
+padding:15px;
+border-radius:10px;
+box-shadow:0 0 10px gray;
+text-align:center;
+}
+
+button{
+background:red;
+color:white;
+border:none;
+padding:10px 15px;
+cursor:pointer;
+border-radius:5px;
+}
+
+button:hover{
+background:darkred;
+}
+
+#total{
+text-align:center;
+font-size:25px;
+font-weight:bold;
+margin-top:20px;
+}
+
+.empty{
+text-align:center;
+font-size:22px;
+margin-top:40px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+<h2>📚 Book Store</h2>
+
+<div>
+
+<a href="index.html">Home</a>
+
+<a href="index.html#books">Books</a>
+
+<a href="cart.html">Cart 🛒</a>
+
+</div>
+
+</nav>
+
+<div class="container">
+
+<h1>Your Shopping Cart</h1>
+
+<div id="cartItems"></div>
+
+<div id="total"></div>
+
+</div>
+
+<script>
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function showCart(){
+
+let cartItems=document.getElementById("cartItems");
+let total=document.getElementById("total");
+
+cartItems.innerHTML="";
+
+let sum=0;
+
+if(cart.length==0){
+
+cartItems.innerHTML="<p class='empty'>🛒 Your Cart is Empty</p>";
+
+total.innerHTML="";
+
+return;
+
+}
+
+for(let i=0;i<cart.length;i++){
+
+sum+=Number(cart[i].price);
+
+cartItems.innerHTML+=`
+
+<div class="cart-item">
+
+<h2>${cart[i].name}</h2>
+
+<h3>₹${cart[i].price}</h3>
+
+<button onclick="removeItem(${i})">
+
+Remove
+
+</button>
+
+</div>
+
+`;
+
+}
+
+total.innerHTML="Total Amount : ₹"+sum;
+
+}
+
+function removeItem(index){
+
+cart.splice(index,1);
+
+localStorage.setItem("cart",JSON.stringify(cart));
+
+showCart();
+
+}
+
+showCart();
+
+</script>
+
+</body>
+
+</html>
